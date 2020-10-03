@@ -27,6 +27,38 @@ valores */
 /* gris claro = #626262 */
 /* background gris = #1b2127 */
 /* celeste = #026fff */
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?y0x07p');
+  src:  url('../fonts/icomoon.eot?y0x07p#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?y0x07p') format('truetype'),
+    url('../fonts/icomoon.woff?y0x07p') format('woff'),
+    url('../fonts/icomoon.svg?y0x07p#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-menu:before {
+  content: "\e900";
+}
+
 * {
   box-sizing: border-box;
 }
@@ -277,9 +309,6 @@ figure {
   flex-wrap: wrap;
 }
 
-.social {
-}
-
 .social-link {
   display: inline-block;
   width: 50px;
@@ -339,9 +368,25 @@ figure {
   height: inherit;
   flex-wrap: inherit;
 }
+.burger-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(27, 33, 39, .8);
+  display: none;
+  line-height: 40px;
+  text-align: center;
+  position: fixed;
+  z-index: 4;
+  left: 5px;
+  top: 5px;
+  color: wheat;
+}
 
-
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1023px){
+  .event-list-title {
+    margin-left: 0;
+  }
   .container {
     padding: 0 1em;
   }
@@ -365,6 +410,13 @@ figure {
   }
 }
 @media screen and (max-width: 767px){
+  h2 {
+    font-size: 1.2em;
+    margin: .5em 0;
+  }
+  .burger-button {
+    display: block;
+  }
   .header {
     display: block;
     height: auto;
@@ -378,9 +430,29 @@ figure {
   .header a {
     display: flex;
     justify-content: center;
+    height: 40px;
+    font-size: 2em;
+    text-decoration: underline;
+    margin-bottom: .5em;
   }
   .header .logo {
     text-align: center;
+  }
+  .menu {
+    position: fixed;
+    background-color: rgba(27, 33, 39, .9);
+    z-index: 3;
+    top: 0;
+    left: -100vw;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+  }
+  .menu.is-active {
+    left: 0;
   }
   .project {
     display: block;
@@ -410,7 +482,7 @@ figure {
     font-size: 1em;
   }
   .project-description {
-    font-size: .8em;
+    font-size: 1em;
   }
   .event {
     width: auto;
@@ -427,7 +499,7 @@ figure {
     font-size: 1.5em;
   }
   .project-details {
-    font-size: 12px;
+    font-size: 14px;
   }
   .event-detail {
     margin: -2em .5em .5em;
@@ -448,6 +520,11 @@ figure {
     display: block;
     text-align: center;
     border: 1px solid transparent;
+  }
+  .social-link {
+    width: 40px;
+    height: 40px;
+    background-size: 100%;
   }
 }
 @media screen and (max-width: 320px){
